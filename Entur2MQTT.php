@@ -233,6 +233,10 @@ function retrieveandpublish($url,$mqtt) {
 
 			$found=false;
 			if($count>0) {
+				$tz=getenv("TZ");
+                if ( ! $tz ) { $tz = "Erope/Oslo"; }
+                $dtz=new DateTimeZone($tz);
+
 				$naa=new DateTime("now");
 				$mqtt->publish($topic . "time", $naa->format('H:i:s'));
 				$mqtt->publish($topic . "date", $naa->format('Y-m-d'));
