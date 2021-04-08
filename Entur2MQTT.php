@@ -269,12 +269,12 @@ function retrieveandpublish($url,$mqtt) {
 						$mqtt->publish($topic . "departure$i", $publishData);
 					}
 					else {
-						$mqtt->publish($topic . "departsIn$i", "'".$first."'");
-						$mqtt->publish($topic . "publicCode$i", "'".$firstpublicCode."'");
-						$mqtt->publish($topic . "Destination$i", "'".$firstDestination."'");
+						$mqtt->publish($topic . "departsIn$i", $first);
+						$mqtt->publish($topic . "publicCode$i", $firstpublicCode);
+						$mqtt->publish($topic . "Destination$i", $firstDestination);
 						if ($stopPlace) {
-							$mqtt->publish($topic . "quay$i", "'".$firstquay."'");
-							$mqtt->publish($topic . "quayname$i", "'".$firstquayname."'");
+							$mqtt->publish($topic . "quay$i", $firstquay);
+							$mqtt->publish($topic . "quayname$i", $firstquayname);
 						}
 					}
 				}
