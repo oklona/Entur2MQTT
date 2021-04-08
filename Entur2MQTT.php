@@ -234,8 +234,8 @@ function retrieveandpublish($url,$mqtt) {
 			$found=false;
 			if($count>0) {
 				$naa=new DateTime("now");
-				$mqtt->publish($topic . "time", "'".$naa->format('H:i:s')."'");
-				$mqtt->publish($topic . "date", "'".$naa->format('Y-m-d')."'");
+				$mqtt->publish($topic . "time", $naa->format('H:i:s'));
+				$mqtt->publish($topic . "date", $naa->format('Y-m-d'));
 				for($i = 0; $i < $count; $i++) {
 					$ankomst=new DateTime($level4[$i]["expectedDepartureTime"]);
 					$interval = $ankomst->diff($naa);
